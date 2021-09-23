@@ -1,4 +1,4 @@
-import { useLottie } from 'lottie-react'
+import { useLottie, useLottieInteractivity } from 'lottie-react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -15,6 +15,23 @@ export default function Home() {
     style: { cursor: "pointer" }
   })
 
+  // const interactiveAnimation = useLottieInteractivity({
+  //   lottieObj: animation,
+  //   mode: "cursor",
+  //   actions: [
+  //     {
+  //       position: { x: [0, 1], y: [-1, 2] },
+  //       type: "seek",
+  //       frames: [-20, 60],
+  //     },
+  //     {
+  //       position: { x: -4, y: -4 },
+  //       type: "stop",
+  //       frames: [0],
+  //     },
+  //   ],
+  // });
+
   const handleClick = () => {
     animation.setDirection(direction)
     animation.play();
@@ -24,7 +41,7 @@ export default function Home() {
       } else {
         setDirection(1);
       }
-    }, animation.animationItem?.getDuration())
+    })
   }
   return (
     <div className={styles.container}>
